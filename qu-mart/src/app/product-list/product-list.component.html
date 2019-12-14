@@ -1,0 +1,28 @@
+<h2>Products</h2>
+
+<!-- Repeat a div for each product -->
+<div *ngFor="let product of products; index as productId" class="productListing">
+  <h3>
+    <a [title]="product.name + ' details'" [routerLink]="['/products', productId]">
+    {{product.name}}
+    </a>
+  </h3>  
+
+  <!-- On click, execution the share function -->
+  <button (click)="share(product.name)"><i class="material-icons md-light">share</i>
+    Share
+  </button>
+
+  <!-- Add the product alert component and pass in the current product -->
+  <app-product-alerts 
+  [product]="product"
+  (notify)="onNotify(product.name)">
+  </app-product-alerts>
+
+</div>
+
+<!-- 
+Copyright Google LLC. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at http://angular.io/license
+-->
