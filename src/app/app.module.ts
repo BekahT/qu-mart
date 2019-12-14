@@ -5,7 +5,7 @@ import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
 
-import { MatSliderModule } from '@angular/material/slider';
+import { MaterialModule } from './material.module';
 
 import { AppComponent } from './app.component';
 import { TopBarComponent } from './top-bar/top-bar.component';
@@ -21,7 +21,7 @@ import { ShippingComponent } from './shipping/shipping.component';
     BrowserAnimationsModule,
     HttpClientModule,
     ReactiveFormsModule,
-    MatSliderModule,
+    MaterialModule,
     RouterModule.forRoot([
       { path: '', component: ProductListComponent },
       { path: 'products/:productId', component: ProductDetailsComponent },
