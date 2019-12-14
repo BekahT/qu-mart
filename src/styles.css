@@ -8,13 +8,10 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-body {
-  margin: 0;
-}
-
-.container {
+.appContainer {
   display: flex;
   flex-direction: row;
+  padding-top: 16px;
 }
 
 router-outlet + *  {
@@ -84,7 +81,7 @@ label {
   cursor: pointer;
   background-color: #1976d2;
   color: white;
-  border: none;
+  border: none;  
 }
 
 .button:hover, button:hover {
@@ -101,7 +98,7 @@ label {
 
 .fancy-button {
   background-color: white;
-  color: #1976d2;
+  color: #1976d2;  
 }
 
 .fancy-button i.material-icons {
