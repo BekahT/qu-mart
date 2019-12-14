@@ -1,15 +1,20 @@
 /* Global Styles */
 
 * {
-  font-family: 'Roboto', Arial, sans-serif;
-  color: #616161;
+  font-family: 'Roboto', Arial, sans-serif;  
   box-sizing: border-box;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-html, body { height: 100%; }
-body { margin: 0; }
+html, body { 
+  height: 100%; 
+}
+
+body { 
+  margin: 0; 
+  color: #616161;
+}
 
 .appContainer {
   display: flex;
@@ -122,6 +127,12 @@ app-top-bar h1 {
   margin-bottom: 8px;
   border-radius: 2px;
   background-color: #EEEEEE;
+}
+
+/* Material Components */
+
+.snackbar-notification {
+  font-weight: lighter;
 }
 
 /*

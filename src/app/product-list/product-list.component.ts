@@ -1,4 +1,5 @@
 import { Component } from "@angular/core";
+import {MatSnackBar, MatSnackBarConfig} from '@angular/material/snack-bar';
 
 import { products } from "../products";
 
@@ -10,14 +11,20 @@ import { products } from "../products";
 export class ProductListComponent {
   products = products;
 
+  constructor(private _snackBar: MatSnackBar) {}
+
   share(productName) {
-    window.alert("The " + productName + " has been shared!");
+    const config = new MatSnackBarConfig();
+    config.panelClass = ['snackbar-notification'];
+    config.duration = 3000;
+    this._snackBar.open('The ' + productName + ' has been shared', 'Dismiss', config);    
   }
 
   onNotify(productName) {
-    window.alert(
-      "You will be notified when the " + productName + " goes on sale."
-    );
+    const config = new MatSnackBarConfig();
+    config.panelClass = ['snackbar-notification'];
+    config.duration = 3000;
+    this._snackBar.open('You will be notified when ' + productName + ' goes on sale', 'Dismiss', config);    
   }
 }
 
