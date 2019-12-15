@@ -1,35 +1,41 @@
 export const products = [
   {
-    name: "Rice Cooker 10 Cups",
+    name: "Rice Cooker, 10 Cups",
     price: 713,
+    image: "assets/img/riceCooker10.jpg", 
     description:
       "A 10 cup induction heating rice cooker with a LCD touch screen, in rose gold"
   },
   {
-    name: "Rice Cooker 6 Cups",
+    name: "Rice Cooker, 6 Cups",
     price: 450,
+    image: "assets/img/riceCooker6.jpg", 
     description:
       "A 6 cup stainless steel rice cooker with ventiliation pipe system"
   },
   {
-    name: "Sliced Cabbage Kimchi",
+    name: "Cabbage Kimchi",
     price: 10,
+    image: "assets/img/cabbageKimchi.jpg", 
     description: ""
   },
   {
     name: "Cubed Radish Kimchi",
     price: 10,
+    image: "assets/img/radishKimchi.jpg", 
     description: ""
   },
   {
-    name: "Stuffed Cucumber Kimchi",
+    name: "Cucumber Kimchi",
     price: 10,
+    image: "assets/img/cucumberKimchi.jpg", 
     description: ""
   },
   {
     name: "Beef Kalbi Marinade",
-    price: 5,
-    description: "Korean Style BBQ Sauce Beef Kalbi Marinade 2.11lb"
+    price: 7,
+    image: "assets/img/kalbiMarinade.jpg", 
+    description: "Korean Style BBQ Sauce Beef Kalbi Marinade 1.85lb"
   }
 ];
 

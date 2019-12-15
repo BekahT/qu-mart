@@ -1,20 +1,20 @@
 <h2>Products</h2>
 
-<div *ngFor="let product of products; index as productId" class="productListing">
-  <h3>
-    <a [title]="product.name + ' details'" [routerLink]="['/products', productId]">
-      {{product.name}}
-    </a>
-  </h3>
-
-  <button (click)="share(product.name)"><i class="material-icons md-light">share</i>
-    Share
-  </button>
-
-  <!-- Add the product alert component and pass in the current product -->
-  <app-product-alerts [product]="product" (notify)="onNotify($event)">
-  </app-product-alerts>
-
+<div class="card productListing" *ngFor="let product of products; index as productId">
+  <img class="card-img-top" src={{product.image}} alt={{product.description}}>
+  <div class="card-body">
+    <h5>{{product.name}}</h5>
+    <h6 class="text-muted">{{product.price | currency }}</h6>
+    <h6 ><a [title]="product.name + ' details'" [routerLink]="['/products', productId]">
+        View Details
+      </a></h6>
+      <button type="button" class="btn btn-primary" (click)="share(product.name)">
+        <mat-icon>share</mat-icon> Share
+      </button>
+      <!-- Add the product alert component and pass in the current product -->
+      <app-product-alerts [product]="product" (notify)="onNotify($event)">
+      </app-product-alerts>
+  </div> 
 </div>
 
 <!-- 

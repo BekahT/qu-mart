@@ -2,8 +2,10 @@
   <h1><img src="assets/fav.png" height="52"> QuMart</h1>
 </a>
 
-<a [routerLink]="['/cart']" class="button fancy-button" matBadgeColor="warn" matBadge={{count}} matBadgePosition="before">
-  <mat-icon>shopping_cart</mat-icon>View Cart</a>
+<button type="button" class="btn btn-light" matBadgeColor="warn" matBadge={{count}} matBadgePosition="before">
+  <a [routerLink]="['/cart']">
+    <mat-icon>shopping_cart</mat-icon> View Cart</a>
+</button>
 
 <!-- 
 Copyright Google LLC. All Rights Reserved.

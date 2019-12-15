@@ -1,14 +1,10 @@
-.productListing {
-  text-align: center;
-  border-radius: 2px;
-  display: block;
-  float: left;
-  height: 200px;
+.productListing  {
+  width: 250px;
+  height: 470px;
   margin: 1rem;
   padding: 5px;
-  position: relative;
-  width: 250px;
-  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  float: left;  
+  text-align: center;
 }
 
 button {
