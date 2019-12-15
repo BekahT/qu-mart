@@ -1,5 +1,5 @@
 import { Component } from "@angular/core";
-import {MatSnackBar, MatSnackBarConfig} from '@angular/material/snack-bar';
+import { MatSnackBar, MatSnackBarConfig } from '@angular/material/snack-bar';
 
 import { products } from "../products";
 

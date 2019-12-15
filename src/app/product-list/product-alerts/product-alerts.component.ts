@@ -13,4 +13,7 @@ export class ProductAlertsComponent implements OnInit {
   constructor() {}
 
   ngOnInit() {}
+  onClick() {
+    this.notify.emit(this.product.name);
+  }
 }

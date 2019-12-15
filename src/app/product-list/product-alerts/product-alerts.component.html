@@ -1,5 +1,5 @@
 <!-- If the price is over 200, allow price alerts --> 
 <p *ngIf="product.price > 200">
-	<button (click)="notify.emit()" title="Notify me when this product goes on sale">
+	<button (click)="onClick()" title="Notify me when this product goes on sale">
 	<i class="material-icons md-light">add_alert</i>Notify Me</button>
 </p>

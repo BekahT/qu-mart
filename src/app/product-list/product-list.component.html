@@ -12,7 +12,7 @@
   </button>
 
   <!-- Add the product alert component and pass in the current product -->
-  <app-product-alerts [product]="product" (notify)="onNotify(product.name)">
+  <app-product-alerts [product]="product" (notify)="onNotify($event)">
   </app-product-alerts>
 
 </div>
