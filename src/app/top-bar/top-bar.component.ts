@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CartService } from '../cart.service';
 
 @Component({
   selector: 'app-top-bar',
@@ -6,10 +7,18 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./top-bar.component.css']
 })
 export class TopBarComponent implements OnInit {
+  items;
+  count = 0;
 
-  constructor() { }
+  constructor(
+    private cartService: CartService,
+  ) {}
 
-  ngOnInit() {
+  ngOnInit() {  
+    // Update the items count each time the items in cart changes
+    this.cartService.change.subscribe(count => {
+      this.count = count;
+    });  
   }
 
 }

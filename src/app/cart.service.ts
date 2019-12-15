@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, Output, EventEmitter } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
 @Injectable({
@@ -6,6 +6,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class CartService {
     items = []
+    @Output() change: EventEmitter<number> = new EventEmitter();
 
     constructor(
         private http: HttpClient
@@ -13,6 +14,7 @@ export class CartService {
 
     addToCart(product) {
         this.items.push(product);
+        this.change.emit(this.items.length);
     }
 
     getItems() {
@@ -20,7 +22,8 @@ export class CartService {
     }
 
     clearCart() {
-        this.items = [];
+        this.items = [];        
+        this.change.emit(this.items.length);
         return this.items;
     }  
 
