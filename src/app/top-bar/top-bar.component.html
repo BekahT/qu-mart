@@ -1,14 +1,15 @@
-<a [routerLink]="['/']">
-  <h1><img src="assets/fav.png" height="52"> QuMart</h1>
-</a>
+<nav class="navbar navbar-dark bg-primary">
+  <div class="navbar-nav mr-auto">
+    <a class="navbar-brand" [routerLink]="['/']">
+      <h1><img src="assets/fav.png" height="52"> QuMart</h1>
+    </a>
+  </div>
 
-<button type="button" class="btn btn-light" matBadgeColor="warn" matBadge={{count}} matBadgePosition="before">
-  <a [routerLink]="['/cart']">
-    <mat-icon>shopping_cart</mat-icon> View Cart</a>
-</button>
-
-<!-- 
-Copyright Google LLC. All Rights Reserved.
-Use of this source code is governed by an MIT-style license that
-can be found in the LICENSE file at http://angular.io/license
--->
+  <div class="navbar-nav ml-auto">
+    <button type="button" class="btn btn-light" matBadgeColor="warn" matBadge={{count}} matBadgePosition="before">
+      <a [routerLink]="['/cart']">
+        <mat-icon>shopping_cart</mat-icon> View Cart
+      </a>
+    </button>
+  </div>
+</nav>
