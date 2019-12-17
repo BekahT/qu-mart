@@ -1,10 +1,18 @@
 <h2>Product Details</h2>
 
-<div *ngIf="product">
-	<h3>{{ product.name }}</h3>
-	<h5>{{ product.price | currency }}</h5>
-	<p>{{ product.description }}</p>
-
-	<button type="button" class="btn btn-primary" (click)="addToCart(product)"><mat-icon>shopping_cart</mat-icon> Add to Cart</button>
-
+<div *ngIf="product" class="container-fluid">
+	<div class="row justify-content-between">
+		<div class="col-md-5">
+			<img src={{product.image}} alt={{product.description}}>
+		</div>
+		<div class="col-md-5">
+			<h3>{{ product.name }}</h3>
+			<app-product-rating [product]="product"></app-product-rating>
+			<h5 class="product-price">{{ product.price | currency }}</h5>
+			<p>{{ product.description }}</p>
+			<button type="button" class="btn btn-primary" (click)="addToCart(product)">
+				<mat-icon>shopping_cart</mat-icon> Add to Cart
+			</button>
+		</div>
+	</div>	
 </div>
