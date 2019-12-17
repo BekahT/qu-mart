@@ -6,14 +6,8 @@ html, body {
   font-family: 'Roboto', Arial, sans-serif;   
 }
 
-/* .appContainer {
-  display: flex;
-  flex-direction: row;
-  padding-top: 16px;
-} */
-
-router-outlet + *  {
-  padding: 0 16px;
+.appContainer {
+  margin: 20px;
 }
 
 /* Hyperlink */
