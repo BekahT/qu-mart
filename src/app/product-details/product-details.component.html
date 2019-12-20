@@ -2,10 +2,10 @@
 
 <div *ngIf="product" class="container-fluid">
 	<div class="row justify-content-between">
-		<div class="col-md-5">
+		<div class="col-md-5 product-details">
 			<img src={{product.image}} alt={{product.description}}>
 		</div>
-		<div class="col-md-5">
+		<div class="col-md-5 product-details">
 			<h3>{{ product.name }}</h3>
 			<app-product-rating [product]="product"></app-product-rating>
 			<h5 class="product-price">{{ product.price | currency }}</h5>

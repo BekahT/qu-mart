@@ -1,3 +1,12 @@
 .product-price {
     color: #B12704;
 }
+
+.product-details {
+    margin: 20px;
+}
+
+.product-details > img {
+    width: 95%;
+    max-width: 500px;
+}
