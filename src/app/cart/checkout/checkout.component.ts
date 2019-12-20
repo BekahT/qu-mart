@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
 
 import { CartService } from '../../cart.service';
 import { Product } from 'src/app/products';
@@ -9,26 +9,40 @@ import { Product } from 'src/app/products';
     templateUrl: './checkout.component.html',
     styleUrls: ['./checkout.component.css']
 })
-export class CheckoutComponent {
-    items: Product[];    
-    checkoutForm: FormGroup;
+export class CheckoutComponent implements OnInit {
+    items: Product[];
+
+    checkoutForm = new FormGroup({
+        fname: new FormControl('', Validators.required),
+        lname: new FormControl('', Validators.required),
+        email: new FormControl('', [Validators.required, Validators.email])
+    });    
 
     constructor(
         private cartService: CartService,
-        private formBuilder: FormBuilder,
-    ) { 
-        this.items = this.cartService.getItems();
-
-        this.checkoutForm = this.formBuilder.group({
-            name: '',
-            address: ''
-        });
-    } 
-
-    onSubmit(customerData) {
-        console.warn('Order has been submitted', customerData);
-        console.warn('Items in order', this.items);
+    ) {
+        this.items = this.cartService.getItems();      
+        
+    }
     
+    // getErrorMessage() {
+    //     return this.email.hasError('required') ? 'You must enter a value' :
+    //         this.email.hasError('email') ? 'Not a valid email' :
+    //             '';
+    // }
+
+    ngOnInit() {
+        // this.checkoutForm.valueChanges.subscribe(
+        //     (value) => {
+        //         console.log(value)
+        //     }
+        // )
+    }
+
+    submitForm() {
+        console.warn('Order has been submitted', this.checkoutForm.value);
+        console.warn('Items in order', this.items);
+
         this.items = this.cartService.clearCart();
         this.checkoutForm.reset();
     }

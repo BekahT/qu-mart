@@ -1,12 +1,21 @@
-<form [formGroup]="checkoutForm" (ngSubmit)="onSubmit(checkoutForm.value)">
+<form [formGroup]="checkoutForm">
     <h2>Checkout</h2>
     <div>
-        <label for="name">Name</label>
-        <input id="name" type="text" formControlName="name">
+        <mat-form-field>
+            <input matInput placeholder="First Name" type="text" formControlName="fname" required>
+        </mat-form-field>
     </div>
     <div>
-        <label for="address">Address</label>
-        <input id="address" type="text" formControlName="address">
+        <mat-form-field>
+            <input matInput placeholder="Last Name" type="text" formControlName="lname" required>
+        </mat-form-field>
     </div>
-    <button class="button" type="submit">Purchase</button>
+    <div>
+        <mat-form-field>
+            <input matInput placeholder="Email Address" formControlName="email" required>
+            <!-- <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error> -->
+        </mat-form-field>
+    </div>
+    <button type="button" class="btn btn-primary" (click)="submitForm()" [disabled]="!this.checkoutForm.valid">
+        Purchase</button>
 </form>
