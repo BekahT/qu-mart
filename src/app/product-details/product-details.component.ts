@@ -2,6 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import { ActivatedRoute } from "@angular/router";
 import { MatSnackBar, MatSnackBarConfig } from '@angular/material/snack-bar';
 
+import { Product } from 'src/app/products';
 import { products } from "../products";
 import { CartService } from '../cart.service';
 
@@ -11,9 +12,9 @@ import { CartService } from '../cart.service';
   styleUrls: ["./product-details.component.css"]
 })
 export class ProductDetailsComponent implements OnInit {
-  product;
+  product: Product;
   
-  addToCart(product) {
+  addToCart(product: Product) {
     this.cartService.addToCart(product);
     const config = new MatSnackBarConfig();
     config.panelClass = ['snackbar-notification'];

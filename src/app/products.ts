@@ -1,4 +1,4 @@
-export const products = [
+export const products: Product[] = [
   {
     name: "Rice Cooker, 10 Cups",
     price: 712.99,
@@ -86,3 +86,11 @@ export const products = [
     description: "Banana milk is a delicious and energizing beverage with creamy banana flavor."
   }
 ];
+
+export interface Product{
+  name: string;
+  price: number;
+  image: string;
+  rating: number;
+  description: string;
+}

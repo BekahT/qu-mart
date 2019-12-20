@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+
 import { CartService } from '../cart.service';
+import { Product } from 'src/app/products';
 
 @Component({
     selector: 'app-cart',
@@ -7,7 +9,7 @@ import { CartService } from '../cart.service';
     styleUrls: ['./cart.component.css']
 })
 export class CartComponent implements OnInit {
-    items;
+    items: Product[];
     totalPrice: number;
 
     constructor(
@@ -24,9 +26,9 @@ export class CartComponent implements OnInit {
         });
     }
 
-    sumCart(items) {
+    sumCart(items: Product[]) {
         let sum: number = 0;
-        items.forEach(function (item) {
+        items.forEach(item => {
             sum += item.price;
         });
         return sum;

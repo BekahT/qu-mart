@@ -1,6 +1,7 @@
 import { Component } from "@angular/core";
 import { MatSnackBar, MatSnackBarConfig } from '@angular/material/snack-bar';
 
+import { Product } from 'src/app/products';
 import { products } from "../products";
 
 @Component({
@@ -9,18 +10,18 @@ import { products } from "../products";
   styleUrls: ["./product-list.component.css"]
 })
 export class ProductListComponent {
-  products = products;
+  products: Product[] = products;
 
   constructor(private _snackBar: MatSnackBar) {}
 
-  share(productName) {
+  share(productName: string) {
     const config = new MatSnackBarConfig();
     config.panelClass = ['snackbar-notification'];
     config.duration = 3000;
     this._snackBar.open('The ' + productName + ' has been shared', 'Dismiss', config);    
   }
 
-  onNotify(productName) {
+  onNotify(productName: string) {
     const config = new MatSnackBarConfig();
     config.panelClass = ['snackbar-notification'];
     config.duration = 3000;
