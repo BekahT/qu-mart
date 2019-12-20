@@ -12,9 +12,10 @@ import { TopBarComponent } from './top-bar/top-bar.component';
 import { ProductListComponent } from './product-list/product-list.component';
 import { ProductAlertsComponent } from './product-list/product-alerts/product-alerts.component';
 import { ProductDetailsComponent } from './product-details/product-details.component';
-import { CartComponent } from './cart/cart.component';
-import { ShippingComponent } from './shipping/shipping.component';
 import { ProductRatingComponent } from './product-details/product-rating/product-rating.component';
+import { CartComponent } from './cart/cart.component';
+import { CheckoutComponent } from './cart/checkout/checkout.component';
+import { ShippingComponent } from './shipping/shipping.component';
 
 @NgModule({
   imports: [
@@ -36,9 +37,10 @@ import { ProductRatingComponent } from './product-details/product-rating/product
     ProductListComponent,
     ProductAlertsComponent,
     ProductDetailsComponent,
+    ProductRatingComponent,
     CartComponent,
-    ShippingComponent,
-    ProductRatingComponent
+    CheckoutComponent,
+    ShippingComponent
   ],
   bootstrap: [AppComponent]
 })

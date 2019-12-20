@@ -16,8 +16,8 @@ export class TopBarComponent implements OnInit {
 
   ngOnInit() {  
     // Update the items count each time the items in cart changes
-    this.cartService.change.subscribe(count => {
-      this.count = count;
+    this.cartService.change.subscribe(items => {
+      this.count = items.length;
     });  
   }
 

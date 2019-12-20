@@ -34,9 +34,9 @@ label {
   text-transform: uppercase;
 }
 
-/* Checkout Cart, Shipping Prices */
+/* Shipping Prices */
 
-.cart-item, .shipping-item {
+.shipping-item {
   width: 100%;
   min-width: 400px;
   max-width: 450px;

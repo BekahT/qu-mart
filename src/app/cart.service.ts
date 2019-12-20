@@ -7,7 +7,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class CartService {
     items = []
-    change: Subject<number> = new Subject();
+    change: Subject<any[]> = new Subject();
 
     constructor(
         private http: HttpClient
@@ -15,7 +15,7 @@ export class CartService {
 
     addToCart(product) {
         this.items.push(product);
-        this.change.next(this.items.length);
+        this.change.next(this.items);
     }
 
     getItems() {
@@ -24,7 +24,7 @@ export class CartService {
 
     clearCart() {
         this.items = [];        
-        this.change.next(this.items.length);
+        this.change.next(this.items);
         return this.items;
     }  
 

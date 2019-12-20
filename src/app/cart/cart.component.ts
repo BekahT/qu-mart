@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder } from '@angular/forms';
 import { CartService } from '../cart.service';
 
 @Component({
@@ -7,28 +6,30 @@ import { CartService } from '../cart.service';
     templateUrl: './cart.component.html',
     styleUrls: ['./cart.component.css']
 })
-export class CartComponent {
+export class CartComponent implements OnInit {
     items;
-    checkoutForm;
+    totalPrice: number;
 
     constructor(
         private cartService: CartService,
-        private formBuilder: FormBuilder,
-    ) { 
+    ) {
         this.items = this.cartService.getItems();
 
-        this.checkoutForm = this.formBuilder.group({
-            name: '',
-            address: ''
-        });
-    } 
+        this.totalPrice = this.sumCart(this.items);
+    }
 
-    onSubmit(customerData) {
-        console.warn('Order has been submitted', customerData);
-        console.warn('Items in order', this.items);
-    
-        this.items = this.cartService.clearCart();
-        this.checkoutForm.reset();
+    ngOnInit() {
+        this.cartService.change.subscribe(items => {
+            this.items = items;
+        });
+    }
+
+    sumCart(items) {
+        let sum: number = 0;
+        items.forEach(function (item) {
+            sum += item.price;
+        });
+        return sum;
     }
 }
 
