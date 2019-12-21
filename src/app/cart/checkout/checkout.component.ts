@@ -24,12 +24,22 @@ export class CheckoutComponent implements OnInit {
         this.items = this.cartService.getItems();      
         
     }
+
+    getFnameError() {
+        return this.checkoutForm.get('fname').hasError('required') ? 'Please enter a value':
+                '';
+    }
     
-    // getErrorMessage() {
-    //     return this.email.hasError('required') ? 'You must enter a value' :
-    //         this.email.hasError('email') ? 'Not a valid email' :
-    //             '';
-    // }
+    getLnameError() {
+        return this.checkoutForm.get('lname').hasError('required') ? 'Please enter a value':
+                '';
+    }
+
+    getEmailError() {
+        return this.checkoutForm.get('email').hasError('required') ? 'Please enter a value':
+            this.checkoutForm.get('email').hasError('email') ? 'Invalid email' :
+                '';
+    }
 
     ngOnInit() {
         // this.checkoutForm.valueChanges.subscribe(

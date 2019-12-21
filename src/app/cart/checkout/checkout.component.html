@@ -1,21 +1,26 @@
 <form [formGroup]="checkoutForm">
     <h2>Checkout</h2>
     <div>
-        <mat-form-field>
-            <input matInput placeholder="First Name" type="text" formControlName="fname" required>
+        <mat-form-field appearance="outline">
+            <mat-label>First Name</mat-label>
+            <input matInput type="text" formControlName="fname" required>
+            <mat-error *ngIf="!checkoutForm.get('fname').valid">{{getFnameError()}}</mat-error>
         </mat-form-field>
     </div>
     <div>
-        <mat-form-field>
-            <input matInput placeholder="Last Name" type="text" formControlName="lname" required>
+        <mat-form-field appearance="outline">
+            <mat-label>Last Name</mat-label>
+            <input matInput type="text" formControlName="lname" required>
+            <mat-error *ngIf="!checkoutForm.get('lname').valid">{{getLnameError()}}</mat-error>
         </mat-form-field>
     </div>
     <div>
-        <mat-form-field>
-            <input matInput placeholder="Email Address" formControlName="email" required>
-            <!-- <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error> -->
+        <mat-form-field appearance="outline">
+            <mat-label>Email Address</mat-label>
+            <input matInput formControlName="email" required>
+            <mat-error *ngIf="!checkoutForm.get('email').valid">{{getEmailError()}}</mat-error>
         </mat-form-field>
     </div>
-    <button type="button" class="btn btn-primary" (click)="submitForm()" [disabled]="!this.checkoutForm.valid">
+    <button type="button" class="btn btn-primary" (click)="submitForm()" [disabled]="!checkoutForm.valid">
         Purchase</button>
 </form>
