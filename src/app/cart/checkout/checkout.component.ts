@@ -25,19 +25,10 @@ export class CheckoutComponent implements OnInit {
         
     }
 
-    getFnameError() {
-        return this.checkoutForm.get('fname').hasError('required') ? 'Please enter a value':
-                '';
-    }
-    
-    getLnameError() {
-        return this.checkoutForm.get('lname').hasError('required') ? 'Please enter a value':
-                '';
-    }
-
-    getEmailError() {
-        return this.checkoutForm.get('email').hasError('required') ? 'Please enter a value':
-            this.checkoutForm.get('email').hasError('email') ? 'Invalid email' :
+    getError(control: string) {
+        console.log(this.checkoutForm);
+        return this.checkoutForm.get(control).hasError('required') ? 'Please enter a value':
+            this.checkoutForm.get(control).hasError('email') ? 'Invalid email' :
                 '';
     }
 

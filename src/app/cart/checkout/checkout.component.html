@@ -4,21 +4,21 @@
         <mat-form-field appearance="outline">
             <mat-label>First Name</mat-label>
             <input matInput type="text" formControlName="fname" required>
-            <mat-error *ngIf="!checkoutForm.get('fname').valid">{{getFnameError()}}</mat-error>
+            <mat-error *ngIf="!checkoutForm.get('fname').valid">{{getError('fname')}}</mat-error>
         </mat-form-field>
     </div>
     <div>
         <mat-form-field appearance="outline">
             <mat-label>Last Name</mat-label>
             <input matInput type="text" formControlName="lname" required>
-            <mat-error *ngIf="!checkoutForm.get('lname').valid">{{getLnameError()}}</mat-error>
+            <mat-error *ngIf="!checkoutForm.get('lname').valid">{{getError('lname')}}</mat-error>
         </mat-form-field>
     </div>
     <div>
         <mat-form-field appearance="outline">
             <mat-label>Email Address</mat-label>
             <input matInput formControlName="email" required>
-            <mat-error *ngIf="!checkoutForm.get('email').valid">{{getEmailError()}}</mat-error>
+            <mat-error *ngIf="!checkoutForm.get('email').valid">{{getError('email')}}</mat-error>
         </mat-form-field>
     </div>
     <button type="button" class="btn btn-primary" (click)="submitForm()" [disabled]="!checkoutForm.valid">
