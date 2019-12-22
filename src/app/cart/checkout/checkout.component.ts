@@ -1,24 +1,27 @@
-import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
+import { Component} from '@angular/core';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { MatSnackBar, MatSnackBarConfig } from '@angular/material/snack-bar';
 
 import { CartService } from '../../cart.service';
 import { Product } from 'src/app/products';
 import { States } from 'src/assets/states';
+import { Shipping } from 'src/assets/shipping';
 
 @Component({
     selector: 'app-checkout',
     templateUrl: './checkout.component.html',
     styleUrls: ['./checkout.component.css']
 })
-export class CheckoutComponent implements OnInit {
+export class CheckoutComponent{
     items: Product[];
-    states = States;
+    shipping = Shipping;
+    states = States;    
 
     checkoutForm = new FormGroup({
         fname: new FormControl('', Validators.required),
         lname: new FormControl('', Validators.required),
         email: new FormControl('', [Validators.required, Validators.email]),
+        shipping: new FormControl('', Validators.required),
         addressForm: new FormGroup({
             lineOne: new FormControl('', Validators.required),
             lineTwo: new FormControl(''),
@@ -41,14 +44,6 @@ export class CheckoutComponent implements OnInit {
             this.checkoutForm.get(control).hasError('email') ? 'Please enter a valid email' :
             this.checkoutForm.get(control).hasError('pattern') ? 'Please enter a 5-digit zip code' :
                 '';
-    }
-
-    ngOnInit() {
-        // this.checkoutForm.valueChanges.subscribe(
-        //     (value) => {
-        //         console.log(value)
-        //     }
-        // )
     }
 
     submitForm() {

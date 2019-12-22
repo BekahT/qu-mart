@@ -6,10 +6,6 @@
         <span class="badge badge-secondary badge-pill">{{items.length}}</span>
       </h2>
 
-      <p>
-        <a routerLink="/shipping">Shipping Prices</a>
-      </p>
-
       <div *ngIf="items.length == 0">
         <p>You have no items in your cart</p>
       </div>
@@ -27,7 +23,7 @@
       </ul>
     </div>
 
-    <div class="col-md-6" *ngIf="items.length != 0">
+    <div class="col-md-6">
       <app-checkout></app-checkout>
     </div>
   </div>
