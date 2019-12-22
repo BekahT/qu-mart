@@ -99,6 +99,8 @@ THE SOFTWARE.
 
 @angular/material/icon
 
+@angular/material/radio
+
 @angular/material/select
 
 @angular/material/snack-bar
