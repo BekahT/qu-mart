@@ -4,6 +4,7 @@ mat-form-field {
 
 .wideField {
     width: 420px;
+    max-width: 90%;
 }
 
 .purchaseBtn {
