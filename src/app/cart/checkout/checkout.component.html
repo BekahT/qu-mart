@@ -1,13 +1,12 @@
+<h2>Checkout</h2>
+<p>Enter your contact and shipping information below to complete your purchase.</p>
 <form [formGroup]="checkoutForm">
-    <h2>Checkout</h2>
     <div>
         <mat-form-field appearance="outline">
             <mat-label>First Name</mat-label>
             <input matInput type="text" formControlName="fname" required>
             <mat-error *ngIf="!checkoutForm.get('fname').valid">{{getError('fname')}}</mat-error>
         </mat-form-field>
-    </div>
-    <div>
         <mat-form-field appearance="outline">
             <mat-label>Last Name</mat-label>
             <input matInput type="text" formControlName="lname" required>
@@ -15,12 +14,54 @@
         </mat-form-field>
     </div>
     <div>
-        <mat-form-field appearance="outline">
+        <mat-form-field appearance="outline" class="wideField">
             <mat-label>Email Address</mat-label>
-            <input matInput formControlName="email" required>
+            <input matInput formControlName="email" class="wideField" required>
             <mat-error *ngIf="!checkoutForm.get('email').valid">{{getError('email')}}</mat-error>
         </mat-form-field>
     </div>
-    <button type="button" class="btn btn-primary" (click)="submitForm()" [disabled]="!checkoutForm.valid">
-        Purchase</button>
+    <div formGroupName="addressForm">
+        <div>
+            <mat-form-field appearance="outline" class="wideField">
+                <mat-label>Street Address Line 1</mat-label>
+                <input matInput formControlName="lineOne" class="wideField" required>
+                <mat-error *ngIf="!checkoutForm.get('addressForm.lineOne').valid">{{getError('addressForm.lineOne')}}
+                </mat-error>
+            </mat-form-field>
+        </div>
+        <div>
+            <mat-form-field appearance="outline" class="wideField">
+                <mat-label>Street Address Line 2</mat-label>
+                <input matInput formControlName="lineTwo" class="wideField">
+            </mat-form-field>
+        </div>
+        <div>
+            <mat-form-field appearance="outline">
+                <mat-label>City</mat-label>
+                <input matInput formControlName="city" required>
+                <mat-error *ngIf="!checkoutForm.get('addressForm.city').valid">{{getError('addressForm.city')}}
+                </mat-error>
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label>State</mat-label>
+                <mat-select formControlName="state" required>
+                    <mat-option *ngFor="let state of states" [value]="state">{{state}}</mat-option>
+                </mat-select>
+                <mat-error *ngIf="!checkoutForm.get('addressForm.state').valid">{{getError('addressForm.state')}}
+                </mat-error>
+            </mat-form-field>
+        </div>
+        <div>
+            <mat-form-field appearance="outline">
+                <mat-label>Zip Code</mat-label>
+                <input matInput formControlName="zip" required>
+                <mat-error *ngIf="!checkoutForm.get('addressForm.zip').valid">{{getError('addressForm.zip')}}
+                </mat-error>
+            </mat-form-field>
+        </div>
+    </div>
 </form>
+<div>
+    <button type="button" class="btn btn-primary btn-lg purchaseBtn" (click)="submitForm()" [disabled]="!checkoutForm.valid">
+        Purchase</button>
+</div>
