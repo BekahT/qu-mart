@@ -14,13 +14,34 @@ export class CartService {
         private http: HttpClient
     ) {} 
 
-    addToCart(product: Product) {
-        this.items.push(product);
+    addToCart(product: Product) {        
+        if (this.items.includes(product)) {
+            product["quantity"]++;
+        } else {
+            product["quantity"] = 1;
+            this.items.push(product);
+        }        
         this.change.next(this.items);
     }
 
     getItems() {
         return this.items;
+    }
+
+    getQuantity() {
+        let sum: number = 0;
+        this.items.forEach(item => {
+            sum += item["quantity"];
+        });
+        return sum;
+    }
+
+    sumCart() {
+        let sum: number = 0;
+        this.items.forEach(item => {
+            sum += (item.price * item["quantity"]);
+        });
+        return sum;
     }
 
     clearCart() {

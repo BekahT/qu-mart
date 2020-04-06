@@ -11,27 +11,24 @@ import { Product } from 'src/app/products';
 export class CartComponent implements OnInit {
     items: Product[];
     totalPrice: number;
+    totalQuantity: number;
 
     constructor(
         private cartService: CartService,
     ) {
         this.items = this.cartService.getItems();
-
-        this.totalPrice = this.sumCart(this.items);
+        this.totalQuantity = this.cartService.getQuantity();
+        this.totalPrice = this.cartService.sumCart();
     }
 
     ngOnInit() {
         this.cartService.change.subscribe(items => {
             this.items = items;
+            this.totalQuantity = this.cartService.getQuantity();
+            this.totalPrice = this.cartService.sumCart();
         });
     }
 
-    sumCart(items: Product[]) {
-        let sum: number = 0;
-        items.forEach(item => {
-            sum += item.price;
-        });
-        return sum;
-    }
+    
 }
 

@@ -1,29 +1,41 @@
 <div class="container-fluid">
   <div class="row">
-    <div class="col-md-6">
-      <h2 class="d-flex justify-content-between align-items-center mb-3">
-        <span>Cart</span>
-        <span class="badge badge-secondary badge-pill">{{items.length}}</span>
-      </h2>
+    <div class="col-md-5 mr-auto">
+      <h2 class="d-flex mb-3">Cart</h2>
 
       <div *ngIf="items.length == 0" class="alert alert-warning" role="alert">
         You have no items in your cart
       </div>
 
-      <ul class="list-group cart-items" *ngIf="items.length != 0">
-        <li class="list-group-item d-flex justify-content-between align-items-center cart-item"
-          *ngFor="let item of items">
-          <span>{{ item.name }}</span>
-          <span>{{ item.price | currency }}</span>
-        </li>
-        <li class="list-group-item d-flex justify-content-between align-items-center list-group-item-success">
-          <span>Total before shipping: </span>
-          <span>{{ totalPrice | currency }}</span>
-        </li>
-      </ul>
-    </div>
+      <table class="table table-hover" *ngIf="items.length != 0">
+        <thead>
+          <tr>
+            <th>Item</th>
+            <th>Unit Price</th>
+            <th>Quantity</th>
+            <th>Total Price</th>
+          </tr>          
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of items">
+            <td>{{ item.name }}</td>
+            <td>{{ item.price | currency }}</td>
+            <td>{{ item["quantity"] }}</td>
+            <td>{{ item.price * item["quantity"] | currency }}</td>
+          </tr>
+          <tr class="table-warning">
+            <td colspan="3">Total before shipping:</td>
+            <td colspan="1">{{ totalPrice | currency }}</td>
+          </tr>
+          <tr class="table-success">
+            <td colspan="3">Total including shipping:</td>
+            <td colspan="1"> $placeholder </td>
+          </tr>
+        </tbody>
+      </table>     
+    </div> 
 
-    <div class="col-md-6" *ngIf="items.length != 0">
+    <div class="col-md-5 ml-auto" *ngIf="items.length != 0">
       <app-checkout></app-checkout>
     </div>
   </div>
