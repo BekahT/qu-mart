@@ -1,7 +1,7 @@
 <h2>Products</h2>
 
 <div class="card productListing" *ngFor="let product of products; index as productId">
-  <img class="card-img-top" src={{product.image}} alt={{product.description}}>
+  <img class="card-img-top productImg" src={{product.image}} alt={{product.description}}>
   <div class="card-body">
     <h5>{{product.name}}</h5>
     <h6 class="text-muted">{{product.price | currency }}</h6>
