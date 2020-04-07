@@ -1,4 +1,4 @@
-export const Shipping: Array<object> = [
+export const Shipping: Shipping[] = [
     {
         "type": "Overnight",
         "price": 25.55
@@ -12,3 +12,8 @@ export const Shipping: Array<object> = [
         "price": 5.99
     }
 ];
+
+export interface Shipping {
+    type: string;
+    price: number;
+}
