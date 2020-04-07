@@ -10,9 +10,9 @@
 			<app-product-rating [product]="product"></app-product-rating>
 			<h5 class="product-price">{{ product.price | currency }}</h5>
 			<p>{{ product.description }}</p>
-			<button type="button" class="btn btn-primary" (click)="addToCart(product)">
-				<mat-icon>shopping_cart</mat-icon> Add to Cart
+			<button mat-raised-button color="primary" (click)="addToCart(product)">
+				<mat-icon>add_shopping_cart</mat-icon> Add to Cart
 			</button>
 		</div>
-	</div>	
+	</div>
 </div>

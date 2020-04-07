@@ -13,20 +13,20 @@ import { CartService } from '../cart.service';
 })
 export class ProductDetailsComponent implements OnInit {
   product: Product;
-  
+
   addToCart(product: Product) {
     this.cartService.addToCart(product);
     const config = new MatSnackBarConfig();
     config.panelClass = ['snackbar-notification'];
     config.duration = 3000;
-    this._snackBar.open('The ' + product.name + ' has been added to the cart', 'Dismiss', config); 
+    this._snackBar.open('The ' + product.name + ' has been added to the cart', 'Dismiss', config);
   }
 
   constructor(
     private route: ActivatedRoute,
     private _snackBar: MatSnackBar,
     private cartService: CartService
-    ) {}
+  ) { }
 
   ngOnInit() {
     this.route.paramMap.subscribe(params => {

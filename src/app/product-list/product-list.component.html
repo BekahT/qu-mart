@@ -5,20 +5,12 @@
   <div class="card-body">
     <h5>{{product.name}}</h5>
     <h6 class="text-muted">{{product.price | currency }}</h6>
-    <h6 ><a [title]="product.name + ' details'" [routerLink]="['/products', productId]">
-        View Details
-      </a></h6>
-      <button type="button" class="btn btn-primary" (click)="share(product.name)">
-        <mat-icon>share</mat-icon> Share
-      </button>
-      <!-- Add the product alert component and pass in the current product -->
-      <app-product-alerts [product]="product" (notify)="onNotify($event)">
-      </app-product-alerts>
-  </div> 
+    <button mat-fab color="primary" matTooltip="View Details" matTooltipPosition="below"
+      [routerLink]="['/products', productId]">
+      <mat-icon>launch</mat-icon>
+    </button>
+    <button mat-fab color="primary" matTooltip="Add to Cart" matTooltipPosition="below" (click)="addToCart(product)">
+      <mat-icon>add_shopping_cart</mat-icon>
+    </button>
+  </div>
 </div>
-
-<!-- 
-Copyright Google LLC. All Rights Reserved.
-Use of this source code is governed by an MIT-style license that
-can be found in the LICENSE file at http://angular.io/license
--->

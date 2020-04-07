@@ -6,8 +6,8 @@
   </div>
 
   <div class="navbar-nav ml-auto">
-    <a [routerLink]="['/cart']" class="btn btn-light" matBadgeColor="warn" matBadge={{count}} matBadgePosition="before">
+    <button mat-raised-button color="secondary" matBadgeColor="warn" matBadge={{count}} matBadgePosition="before" [routerLink]="['/cart']">
       <mat-icon>shopping_cart</mat-icon> View Cart
-    </a>
+    </button>
   </div>
 </nav>

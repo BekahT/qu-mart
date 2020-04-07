@@ -87,7 +87,7 @@ export const products: Product[] = [
   }
 ];
 
-export interface Product{
+export interface Product {
   name: string;
   price: number;
   image: string;

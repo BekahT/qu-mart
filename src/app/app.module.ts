@@ -10,7 +10,6 @@ import { MaterialModule } from './material.module';
 import { AppComponent } from './app.component';
 import { TopBarComponent } from './top-bar/top-bar.component';
 import { ProductListComponent } from './product-list/product-list.component';
-import { ProductAlertsComponent } from './product-list/product-alerts/product-alerts.component';
 import { ProductDetailsComponent } from './product-details/product-details.component';
 import { ProductRatingComponent } from './product-details/product-rating/product-rating.component';
 import { CartComponent } from './cart/cart.component';
@@ -33,7 +32,6 @@ import { CheckoutComponent } from './cart/checkout/checkout.component';
     AppComponent,
     TopBarComponent,
     ProductListComponent,
-    ProductAlertsComponent,
     ProductDetailsComponent,
     ProductRatingComponent,
     CartComponent,
@@ -42,9 +40,3 @@ import { CheckoutComponent } from './cart/checkout/checkout.component';
   bootstrap: [AppComponent]
 })
 export class AppModule {}
-
-/*
-Copyright Google LLC. All Rights Reserved.
-Use of this source code is governed by an MIT-style license that
-can be found in the LICENSE file at http://angular.io/license
-*/

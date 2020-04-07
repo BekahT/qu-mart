@@ -3,6 +3,7 @@ import { MatSnackBar, MatSnackBarConfig } from '@angular/material/snack-bar';
 
 import { Product } from 'src/app/products';
 import { products } from "../products";
+import { CartService } from '../cart.service';
 
 @Component({
   selector: "app-product-list",
@@ -12,25 +13,17 @@ import { products } from "../products";
 export class ProductListComponent {
   products: Product[] = products;
 
-  constructor(private _snackBar: MatSnackBar) {}
+  constructor(
+    private _snackBar: MatSnackBar,
+    private cartService: CartService
+  ) { }
 
-  share(productName: string) {
+  addToCart(product: Product) {
+    this.cartService.addToCart(product);
     const config = new MatSnackBarConfig();
     config.panelClass = ['snackbar-notification'];
     config.duration = 3000;
-    this._snackBar.open('The ' + productName + ' has been shared', 'Dismiss', config);    
+    this._snackBar.open('The ' + product.name + ' has been added to the cart', 'Dismiss', config);
   }
 
-  onNotify(productName: string) {
-    const config = new MatSnackBarConfig();
-    config.panelClass = ['snackbar-notification'];
-    config.duration = 3000;
-    this._snackBar.open('You will be notified when ' + productName + ' goes on sale', 'Dismiss', config);    
-  }
 }
-
-/*
-Copyright Google LLC. All Rights Reserved.
-Use of this source code is governed by an MIT-style license that
-can be found in the LICENSE file at http://angular.io/license
-*/
