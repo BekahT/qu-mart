@@ -14,7 +14,7 @@
             <th>Unit Price</th>
             <th>Quantity</th>
             <th>Total Price</th>
-          </tr>          
+          </tr>
         </thead>
         <tbody>
           <tr *ngFor="let item of items">
@@ -23,20 +23,36 @@
             <td>{{ item["quantity"] }}</td>
             <td>{{ item.price * item["quantity"] | currency }}</td>
           </tr>
-          <tr class="table-warning">
-            <td colspan="3">Total before shipping:</td>
+          <tr class="table-success" *ngIf="!selectedShipping">
+            <td colspan="3">Subtotal</td>
             <td colspan="1">{{ totalPrice | currency }}</td>
           </tr>
-          <tr class="table-success">
-            <td colspan="3">Total including shipping:</td>
-            <td colspan="1"> $PLACEHOLDER </td>
+          <tr *ngIf="selectedShipping">
+            <td colspan="3">Shipping</td>
+            <td colspan="1">{{selectedShipping | currency}}</td>
+          </tr>
+          <tr class="table-success" *ngIf="selectedShipping">
+            <td colspan="3">Total</td>
+            <td colspan="1">{{ totalPrice + selectedShipping | currency }}</td>
           </tr>
         </tbody>
-      </table>     
-    </div> 
+      </table>
+    </div>
 
     <div class="col-md-5 ml-auto" *ngIf="items.length != 0">
-      <app-checkout></app-checkout>
+      <div>
+        <h2>Shipping</h2>
+        <label>Select shipping type:</label>
+        <mat-radio-group [(ngModel)]="selectedShipping">
+          <mat-radio-button class="shippingOptions" *ngFor="let option of shipping" [value]="option.price">
+            {{option.type}} - {{option.price | currency}}
+          </mat-radio-button>
+        </mat-radio-group>
+      </div>
+      <div *ngIf="selectedShipping">
+        <hr>
+        <app-checkout></app-checkout>
+      </div>
     </div>
   </div>
 </div>

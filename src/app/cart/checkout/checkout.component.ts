@@ -5,7 +5,6 @@ import { MatSnackBar, MatSnackBarConfig } from '@angular/material/snack-bar';
 import { CartService } from '../../cart.service';
 import { Product } from 'src/app/products';
 import { States } from 'src/assets/states';
-import { Shipping } from 'src/assets/shipping';
 
 @Component({
     selector: 'app-checkout',
@@ -14,14 +13,12 @@ import { Shipping } from 'src/assets/shipping';
 })
 export class CheckoutComponent{
     items: Product[];
-    shipping = Shipping;
     states = States;    
 
     checkoutForm = new FormGroup({
         fname: new FormControl('', Validators.required),
         lname: new FormControl('', Validators.required),
         email: new FormControl('', [Validators.required, Validators.email]),
-        shipping: new FormControl('', Validators.required),
         addressForm: new FormGroup({
             lineOne: new FormControl('', Validators.required),
             lineTwo: new FormControl(''),
@@ -47,8 +44,8 @@ export class CheckoutComponent{
     }
 
     submitForm() {
-        console.warn('Order details: ', this.checkoutForm.value);
-        console.warn('Items in order: ', this.items);
+        console.info('Order details: ', this.checkoutForm.value);
+        console.info('Items in order: ', this.items);
 
         const config = new MatSnackBarConfig();
         config.panelClass = ['snackbar-notification'];

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import { CartService } from '../cart.service';
 import { Product } from 'src/app/products';
+import { Shipping } from 'src/assets/shipping';
 
 @Component({
     selector: 'app-cart',
@@ -10,6 +11,8 @@ import { Product } from 'src/app/products';
 })
 export class CartComponent implements OnInit {
     items: Product[];
+    shipping = Shipping;
+    selectedShipping: number;
     totalPrice: number;
     totalQuantity: number;
 

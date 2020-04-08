@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule, NgModel } from '@angular/forms';
 
 import { MaterialModule } from './material.module';
 
@@ -14,12 +14,15 @@ import { ProductDetailsComponent } from './product-details/product-details.compo
 import { ProductRatingComponent } from './product-details/product-rating/product-rating.component';
 import { CartComponent } from './cart/cart.component';
 import { CheckoutComponent } from './cart/checkout/checkout.component';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     HttpClientModule,
+    FormsModule,
+    CommonModule,
     ReactiveFormsModule,
     MaterialModule,
     RouterModule.forRoot([

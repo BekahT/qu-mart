@@ -19,13 +19,7 @@
             <input matInput formControlName="email" class="wideField" required>
             <mat-error *ngIf="!checkoutForm.get('email').valid">{{getError('email')}}</mat-error>
         </mat-form-field>
-    </div>
-    <div>
-        <label>Shipping: </label>
-        <mat-radio-group formControlName="shipping">
-            <mat-radio-button *ngFor="let option of shipping" [value]="option.type" [matTooltip]="'$'+option.price">{{option.type}}</mat-radio-button>
-        </mat-radio-group>
-    </div>
+    </div>  
     <div formGroupName="addressForm">
         <div>
             <mat-form-field appearance="outline" class="wideField">
