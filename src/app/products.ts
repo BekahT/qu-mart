@@ -82,7 +82,7 @@ export const products: Product[] = [
     name: "Banana Milk",
     price: 7.99,
     image: "assets/img/bananaDrink.jpg", 
-    rating: 2,
+    rating: 0.5,
     description: "Banana milk is a delicious and energizing beverage with creamy banana flavor."
   },
   {
@@ -138,7 +138,7 @@ export const products: Product[] = [
     name: "Ddeokbokki Sauce",
     price: 4.49,
     image: "assets/img/ddeokbokkiSauce.jpg", 
-    rating: 2.5,
+    rating: 2,
     description: "Ddeokbokki is a traditional Korean dish made with rice cakes and Gochujang sauce."
   },
   {
@@ -152,7 +152,7 @@ export const products: Product[] = [
     name: "Beef Bone Broth",
     price: 6.99,
     image: "assets/img/beefBoneBroth.jpg", 
-    rating: 3,
+    rating: 1.5,
     description: "Bibigo Beef Bone Broth Soup 17.6oz."
   },
   {
