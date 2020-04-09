@@ -26,4 +26,24 @@ export class ProductListComponent {
     this._snackBar.open('The ' + product.name + ' has been added to the cart', 'Dismiss', config);
   }
 
+  sortPriceHighLow(products: Product[]) {
+    products.sort((a: Product, b: Product) => (a.price > b.price) ? -1 : 1);
+    return products;
+  }
+
+  sortPriceLowHigh(products: Product[]) {
+    products.sort((a: Product, b: Product) => (a.price < b.price) ? -1 : 1);
+    return products;
+  }
+
+  sortRatingHighLow(products: Product[]) {
+    products.sort((a: Product, b: Product) => (a.rating > b.rating) ? -1 : 1);
+    return products;
+  }
+
+  sortRatingLowHigh(products: Product[]) {
+    products.sort((a: Product, b: Product) => (a.rating < b.rating) ? -1 : 1);
+    return products;
+  }
+
 }

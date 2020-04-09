@@ -86,21 +86,21 @@ export const products: Product[] = [
     description: "Banana milk is a delicious and energizing beverage with creamy banana flavor."
   },
   {
-    name: "Hot Chicken Flavored Ramen",
+    name: "Hot Chicken Ramen",
     price: 5.99,
     image: "assets/img/samyangRamen.jpg", 
     rating: 5,
     description: "Deliciously spicy noodle with sesame seeds and grilled seaweed flakes."
   },
   {
-    name: "Traditional Vermicelli Noodles",
+    name: "Vermicelli Noodles",
     price: 7.99,
     image: "assets/img/vermicelli.jpg", 
     rating: 4.5,
     description: "1.1lb bag. Traditional vermicelli noodles."
   },
   {
-    name: "Fresh Arrowroot Cold Noodle",
+    name: "Cold Noodle",
     price: 6.99,
     image: "assets/img/arrowrootNoodle.jpg", 
     rating: 5,
@@ -114,21 +114,21 @@ export const products: Product[] = [
     description: "Korean Red Ginseng Extract Prime 8.46oz."
   },
   {
-    name: "3 Minutes Jjajang Sauce",
+    name: "Jjajang Sauce",
     price: 2.49,
     image: "assets/img/jjajangSauce.jpg", 
     rating: 1,
     description: "Jjajang sauce ready in 3 minutes."
   },
   {
-    name: "Mocha Gold Mild Coffee",
+    name: "Mocha Gold Coffee",
     price: 19.99,
     image: "assets/img/mochaGold.jpg", 
     rating: 4,
     description: "Maxim Mocha Gold Mild is a smooth and aromatic coffee, conveniently packaged in a stick with sugar and milk powder so you can enjoy it anywhere."
   },
   {
-    name: "Peanut and Squid Ball Snack",
+    name: "Peanut & Squid Snack",
     price: 3.99,
     image: "assets/img/squidPeanutSnack.jpg", 
     rating: 3.5,

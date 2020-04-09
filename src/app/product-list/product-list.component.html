@@ -1,9 +1,17 @@
 <h2>Products</h2>
 
+<div>
+  <button mat-raised-button (click)="sortPriceHighLow(products)">Sort Price: High to Low</button>
+  <button mat-raised-button (click)="sortPriceLowHigh(products)">Sort Price: Low to High</button>
+  <button mat-raised-button (click)="sortRatingHighLow(products)">Sort Rating: High to Low</button>
+  <button mat-raised-button (click)="sortRatingLowHigh(products)">Sort Rating: Low to High</button>
+</div>
+
 <div class="card productListing" *ngFor="let product of products; index as productId">
   <img class="card-img-top productImg" src={{product.image}} alt={{product.description}}>
   <div class="card-body">
     <h5>{{product.name}}</h5>
+    <app-product-rating [product]="product"></app-product-rating>
     <h6 class="text-muted">{{product.price | currency }}</h6>
     <button mat-fab color="primary" matTooltip="View Details" matTooltipPosition="below"
       [routerLink]="['/products', productId]">
