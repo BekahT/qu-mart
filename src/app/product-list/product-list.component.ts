@@ -12,6 +12,8 @@ import { CartService } from '../cart.service';
 })
 export class ProductListComponent {
   products: Product[] = products;
+  sortOptions: String[] = ["Price: High to Low", "Price: Low to High", "Rating: High to Low", "Rating: Low to High"];
+  selectedSort: String;
 
   constructor(
     private _snackBar: MatSnackBar,
@@ -26,24 +28,25 @@ export class ProductListComponent {
     this._snackBar.open('The ' + product.name + ' has been added to the cart', 'Dismiss', config);
   }
 
-  sortPriceHighLow(products: Product[]) {
-    products.sort((a: Product, b: Product) => (a.price > b.price) ? -1 : 1);
-    return products;
-  }
-
-  sortPriceLowHigh(products: Product[]) {
-    products.sort((a: Product, b: Product) => (a.price < b.price) ? -1 : 1);
-    return products;
-  }
-
-  sortRatingHighLow(products: Product[]) {
-    products.sort((a: Product, b: Product) => (a.rating > b.rating) ? -1 : 1);
-    return products;
-  }
-
-  sortRatingLowHigh(products: Product[]) {
-    products.sort((a: Product, b: Product) => (a.rating < b.rating) ? -1 : 1);
-    return products;
+  sort(value: String) {
+    switch(value) {
+      case value = "Price: High to Low": {
+        products.sort((a: Product, b: Product) => (a.price > b.price) ? -1 : 1);
+        break;
+      } 
+      case value = "Price: Low to High": {
+        products.sort((a: Product, b: Product) => (a.price < b.price) ? -1 : 1);
+        break;
+      }
+      case value = "Rating: High to Low": {
+        products.sort((a: Product, b: Product) => (a.rating > b.rating) ? -1 : 1);
+        break;
+      }
+      case value = "Rating: Low to High": {
+        products.sort((a: Product, b: Product) => (a.rating < b.rating) ? -1 : 1);
+        break;
+      }
+    }
   }
 
 }

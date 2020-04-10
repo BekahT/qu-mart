@@ -1,10 +1,13 @@
 <h2>Products</h2>
-
-<div>
-  <button mat-raised-button (click)="sortPriceHighLow(products)">Sort Price: High to Low</button>
-  <button mat-raised-button (click)="sortPriceLowHigh(products)">Sort Price: Low to High</button>
-  <button mat-raised-button (click)="sortRatingHighLow(products)">Sort Rating: High to Low</button>
-  <button mat-raised-button (click)="sortRatingLowHigh(products)">Sort Rating: Low to High</button>
+<div class="sortOptions">
+  <mat-form-field>
+    <mat-label>Sort Products</mat-label>
+    <mat-select [(ngModel)]="selectedSort" (ngModelChange)="sort(selectedSort)">
+      <mat-option *ngFor="let option of sortOptions" [value]="option">
+        {{option}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
 </div>
 
 <div class="card productListing" *ngFor="let product of products; index as productId">

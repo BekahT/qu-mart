@@ -12,6 +12,11 @@
   margin:auto;
 }
 
+.sortOptions {
+  margin: 1rem;
+}
+
 button {
   margin: 10px;
 }
+
