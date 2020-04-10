@@ -12,9 +12,10 @@ import { Shipping } from 'src/assets/shipping';
 export class CartComponent implements OnInit {
     items: Product[];
     shipping = Shipping;
-    selectedShipping: number;
+    selectedShipping: number = null;
     totalPrice: number;
     totalQuantity: number;
+    freeShipping: Boolean = false;
 
     constructor(
         private cartService: CartService,
@@ -30,6 +31,10 @@ export class CartComponent implements OnInit {
             this.totalQuantity = this.cartService.getQuantity();
             this.totalPrice = this.cartService.sumCart();
         });
+
+        if (this.totalPrice >= 50) {
+            this.freeShipping = true;
+        }
     }
 
     

@@ -3,11 +3,11 @@
     <div class="col-md-5 mr-auto">
       <h2 class="d-flex mb-3">Cart</h2>
 
-      <div *ngIf="items.length == 0" class="alert alert-warning" role="alert">
+      <div *ngIf="items.length === 0" class="alert alert-warning" role="alert">
         You have no items in your cart
       </div>
 
-      <table class="table table-hover" *ngIf="items.length != 0">
+      <table class="table table-hover" *ngIf="items.length !== 0">
         <thead>
           <tr>
             <th>Item</th>
@@ -23,15 +23,15 @@
             <td>{{ item["quantity"] }}</td>
             <td>{{ item.price * item["quantity"] | currency }}</td>
           </tr>
-          <tr class="table-success" *ngIf="!selectedShipping">
+          <tr class="table-success" *ngIf="selectedShipping === null">
             <td colspan="3">Subtotal</td>
             <td colspan="1">{{ totalPrice | currency }}</td>
           </tr>
-          <tr *ngIf="selectedShipping">
+          <tr *ngIf="selectedShipping !== null">
             <td colspan="3">Shipping</td>
             <td colspan="1">{{selectedShipping | currency}}</td>
           </tr>
-          <tr class="table-success" *ngIf="selectedShipping">
+          <tr class="table-success" *ngIf="selectedShipping !== null">
             <td colspan="3">Total</td>
             <td colspan="1">{{ totalPrice + selectedShipping | currency }}</td>
           </tr>
@@ -39,13 +39,16 @@
       </table>
     </div>
 
-    <div class="col-md-5 ml-auto" *ngIf="items.length != 0">
+    <div class="col-md-5 ml-auto" *ngIf="items.length !== 0">
       <div>
         <h2>Shipping</h2>
         <label>Select shipping type:</label>
         <mat-radio-group [(ngModel)]="selectedShipping">
           <mat-radio-button class="shippingOptions" *ngFor="let option of shipping" [value]="option.price">
             {{option.type}} - {{option.price | currency}}
+          </mat-radio-button>
+          <mat-radio-button *ngIf="freeShipping" [value]="0">
+            Free - $0.00
           </mat-radio-button>
         </mat-radio-group>
       </div>
