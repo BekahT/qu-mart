@@ -26,10 +26,10 @@ import { CommonModule } from '@angular/common';
     ReactiveFormsModule,
     MaterialModule,
     RouterModule.forRoot([
-      { path: '', component: ProductListComponent },
-      { path: 'products/:productId', component: ProductDetailsComponent },
-      { path: 'cart', component: CartComponent },
-    ])
+    { path: '', component: ProductListComponent },
+    { path: 'products/:productId', component: ProductDetailsComponent },
+    { path: 'cart', component: CartComponent },
+], { relativeLinkResolution: 'legacy' })
   ],
   declarations: [
     AppComponent,
